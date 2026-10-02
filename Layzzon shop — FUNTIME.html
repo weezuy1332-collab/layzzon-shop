@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Layzzon shop — FUNTIME</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#120d22;--bg2:#1a1230;--card:#1d1535;--line:#2c2150;--text:#f3f0ff;--muted:#9a90bd;--cyan:#00e5ff;--purple:#b83cf5;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:400 16px/1.5 Inter,system-ui,sans-serif}
+h1,h2,h3,.logo{font-family:Outfit,Inter,sans-serif}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:80px;gap:16px}
+.logo{font-weight:800;font-size:26px;display:flex;align-items:center;gap:10px}
+.logo i{width:10px;height:26px;border-radius:4px;background:linear-gradient(var(--purple),var(--cyan))}
+.logo b{color:var(--cyan)}
+nav{display:flex;gap:40px}
+nav a,.foot a{color:var(--muted);text-decoration:none;font-size:15px}
+nav a:first-child{color:var(--cyan);border-bottom:2px solid var(--cyan)}
+.login{border:1px solid var(--line);background:var(--bg2);color:var(--text);padding:10px 20px;border-radius:8px;font:600 14px Inter}
+.hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;padding-top:90px;padding-bottom:90px}
+.badge{display:inline-block;border:1px solid var(--line);color:var(--purple);background:#1f1440;border-radius:99px;padding:4px 14px;font-size:12px;font-weight:600;margin-bottom:28px}
+h1{font-size:64px;line-height:1.05;font-weight:800;margin-bottom:24px}
+.hero p{color:var(--muted);font-size:18px;max-width:600px;margin-bottom:36px}
+.cta{background:var(--cyan);color:#06222a;font:700 16px Outfit;border:0;border-radius:10px;padding:18px 36px;box-shadow:0 8px 30px #00e5ff44;cursor:pointer}
+.banner{aspect-ratio:5/2;border-radius:24px;border:1px solid var(--line);display:grid;place-content:center;text-align:center;background:linear-gradient(135deg,#4a0f2e,#1b1040 55%,#0b3a4a);font:800 30px Outfit;color:#fff;padding:24px}
+.banner small{display:block;font:500 14px Inter;color:#d9cdf5;margin-top:8px}
+.feat{background:var(--bg2)}
+.feat .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding-top:48px;padding-bottom:48px}
+.feat div{display:flex;gap:16px}
+.ic{flex:none;width:36px;height:36px;border-radius:8px;border:1px solid var(--line);display:grid;place-items:center;color:var(--cyan);font-size:18px}
+.feat h3{font-size:20px;margin-bottom:4px}
+.feat p{color:var(--muted);font-size:14px}
+.cat{padding:100px 0}
+.cat .top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+h2{font-size:40px;font-weight:800}
+.cat .top p{color:var(--muted)}
+.tabs{display:flex;background:var(--bg2);border-radius:10px;padding:4px;gap:4px}
+.tabs button{background:0;border:0;color:var(--muted);font:600 13px Inter;padding:8px 16px;border-radius:7px;cursor:pointer}
+.tabs button.on{background:var(--cyan);color:#06222a}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.card.c{border-color:#0e5666}.card.p{border-color:#5a2486}
+.row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.tag{font-size:10px;font-weight:700;border-radius:4px;padding:3px 8px;text-transform:uppercase;background:#0c2c3a;color:var(--cyan)}
+.p .tag{background:#2a1448;color:var(--purple)}
+.card h3{font-size:21px}
+.card .d{color:var(--muted);font-size:14px;margin-bottom:28px}
+.buy{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:20px}
+.buy small{display:block;color:var(--muted);font-size:11px}
+.buy strong{font:700 26px Outfit}
+.btn{border:0;border-radius:8px;padding:10px 24px;font:700 13px Outfit;cursor:pointer;background:var(--cyan);color:#06222a}
+.p .btn{background:var(--purple);color:#fff}
+footer{background:var(--bg2);padding:56px 0 32px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid var(--line)}
+.foot nav{gap:32px}.foot nav a:first-child{color:var(--muted);border:0}
+.copy{display:flex;justify-content:space-between;color:#6b6190;font-size:13px;padding-top:28px;gap:12px;flex-wrap:wrap}
+@media(max-width:900px){nav{display:none}.hero .wrap{grid-template-columns:1fr;padding-top:48px;padding-bottom:48px}h1{font-size:44px}.feat .wrap,.grid{grid-template-columns:1fr}.cat{padding:64px 0}}
+.modal{position:fixed;inset:0;background:#000a;display:none;place-items:center;z-index:9;padding:24px}.modal.on{display:grid}.box{background:var(--card);border:1px solid var(--purple);border-radius:20px;padding:40px 32px;text-align:center;max-width:420px;width:100%;box-shadow:0 0 60px #b83cf566}.box h3{font-size:32px;margin-bottom:12px}.box p{color:var(--muted);margin-bottom:24px}.inp{width:100%;background:#120d22;border:1px solid var(--line);border-radius:10px;padding:14px 16px;color:var(--text);font:15px Inter;outline:none;margin-bottom:14px;text-align:left}.inp:focus{border-color:var(--cyan)}.inp::placeholder{color:#6b6190}.row-btns{display:flex;gap:12px;margin-top:8px}.row-btns button{flex:1}.rules{padding:0 0 100px}.fb{display:none;margin-top:8px}.fb.on{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}.fbc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 24px}.fbc h3{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px}.fbu{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.fbu:last-child{border:0}.fbu .av{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--purple),var(--cyan));display:grid;place-items:center;font:700 14px Outfit;color:#fff;flex:none}.fbu span{font:600 15px Inter}.rl{list-style:none;padding:0;display:grid;gap:12px;margin-top:32px;counter-reset:n}.rl li{display:flex;gap:20px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 24px;font-size:18px}.rl b{flex:none;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:#0c2c3a;color:var(--cyan);font:700 18px Outfit}.rl li:nth-child(even) b{background:#2a1448;color:var(--purple)}@media(max-width:900px){.rules{padding-bottom:64px}}</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="logo"><i></i>FUN<b>TIME</b></div>
+  <nav><a href="#">Главная</a><a href="#catalog">Каталог</a><a href="#rules">Правила</a><a href="#">Контакты</a></nav>
+  <button class="login">Войти</button>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="badge">● Сезонное обновление 2026</span>
+    <h1>Layzzon shop</h1>
+    <p>Лучшие услуги для настоящих игроков. Моментальная активация, гарантированная безопасность и круглосуточная поддержка вашей игры на серверах FUNTIME.</p>
+    <button class="cta" onclick="location.href='#catalog'">Перейти в каталог →</button>
+  </div>
+  <div class="banner">LAYZZON SHOP<small>300 грн за день · Заходи сейчас и получи своё</small></div>
+</div></section>
+
+<section class="feat"><div class="wrap">
+  <div><span class="ic">⚡</span><section><h3>Моментальная выдача</h3><p>Все покупки активируются автоматически в течение 60 секунд после успешной оплаты.</p></section></div>
+  <div><span class="ic">💬</span><section><h3>Поддержка 24/7</h3><p>Наша техническая команда готова помочь вам в любое время дня и ночи по любым вопросам.</p></section></div>
+  <div><span class="ic">🛡</span><section><h3>Безопасная оплата</h3><p>Защищённые шлюзы приёма платежей гарантируют сохранность ваших личных данных.</p></section></div>
+</div></section>
+
+<section class="cat" id="catalog"><div class="wrap">
+  <div class="top">
+    <div><h2>Каталог услуг</h2><p>Выберите лучшее предложение для яркого игрового опыта</p></div>
+    <div class="tabs" id="tabs">
+      <button class="on" data-f="all">Все</button><button data-f="pop">Популярные</button><button data-f="priv">Привилегии</button><button data-f="srv">Услуги</button><button data-f="fb">Обратная связь</button>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+<div class="fb" id="fb">
+  <div class="fbc">
+    <h3>👑 Владельцы</h3>
+    <div class="fbu"><div class="av">W</div><span>weezuy</span></div>
+    <div class="fbu"><div class="av">F</div><span>funteq</span></div>
+    <div class="fbu"><div class="av">L</div><span>lovelyp1zdabol</span></div>
+  </div>
+  <div class="fbc">
+    <h3>📦 Поставщики валютки</h3>
+    <div class="fbu"><div class="av">L</div><span>layzzon123</span></div>
+    <div class="fbu"><div class="av">D</div><span>deniks3</span></div>
+  </div>
+  <div class="fbc">
+    <h3>🤝 Посредники</h3>
+    <div class="fbu"><div class="av">L</div><span>layzzon12</span></div>
+    <div class="fbu"><div class="av">M</div><span>maghwer</span></div>
+  </div>
+</div>
+</div></section>
+
+<section class="rules" id="rules"><div class="wrap"><h2>Правила</h2><p style="color:var(--muted)">Обязательны для всех игроков</p><ol class="rl"><li><b>1</b><span>Зарабатывать триста гривен в час</span></li><li><b>2</b><span>Не высовываться со спавна</span></li><li><b>3</b><span>Быть охранником спавна</span></li><li><b>4</b><span>Тратить фулл бал на токены, чтобы в итоге их не потратить</span></li><li><b>5</b><span>Общаться со всеми ради выгоды</span></li><li><b>6</b><span>Иметь неподтверждённый аккаунт в Роблоксе</span></li><li><b>8</b><span>Быть фанатом Акса</span></li><li><b>9</b><span>Не иметь больше 11 лет</span></li><li><b>10</b><span>Тратить миллиард за вайп на размуты</span></li></ol></div></section>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div class="logo" style="font-size:20px"><i style="height:18px;width:8px"></i>FUN<b>TIME</b></div>
+    <nav><a href="#">Главная</a><a href="#catalog">Каталог</a><a href="#rules">Правила</a><a href="#">Контакты</a></nav>
+  </div>
+  <div class="copy"><span>© 2026 FUNTIME. Все права защищены.</span><span>Разработано для лучших игроков</span></div>
+</div></footer>
+
+<div class="modal" id="m"><div class="box"><h3>Верни карту маме 💳</h3><p>Деньги родителей — не для донатов.</p><button class="cta" id="x">Ладно</button></div></div>
+<div class="modal" id="lm"><div class="box"><h3>Войти 🎮</h3><input class="inp" type="text" placeholder="Введите ник на FUNTIME"><input class="inp" type="password" placeholder="Введите пароль на FUNTIME"><div class="row-btns"><button class="btn" id="lx" style="background:var(--line);color:var(--text)">Отмена</button><button class="cta" style="flex:1">Войти</button></div></div></div>
+<script>
+const items=[
+ ['Семья Лейзана на час','Семейный пакет на 1 час','Рекомендуем','c','srv'],
+ ['Деф от Лейзона','Защита и деф вашего аккаунта','VIP','p','priv'],
+ ['Подтвержу аккаунт в роблоксе','Быстрое подтверждение аккаунта','Акция','c','pop'],
+ ['Валютка на ФТ ниже ДМ','Выгодный курс валюты на ФТ','Выгодно','c','srv'],
+ ['Подтверждённый аккаунт в роблоксе','Аккаунт с подтверждением','Premium','p','priv'],
+ ['Три миллиона токенов','Моментальное пополнение токенов','Горячее','p','pop']
+];
+const grid=document.getElementById('grid');
+function render(f){
+  grid.innerHTML=items.filter(i=>f==='all'||i[4]===f).map(i=>`
+  <div class="card ${i[3]}"><div class="row"><span class="ic">★</span><span class="tag">${i[2]}</span></div>
+  <h3>${i[0]}</h3><p class="d">${i[1]}</p>
+  <div class="buy"><div><small>Стоимость</small><strong>300 ₴</strong></div><button class="btn">Купить</button></div></div>`).join('');
+}
+document.getElementById('tabs').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  const f=b.dataset.f;
+  const fb=document.getElementById('fb');
+  if(f==='fb'){grid.style.display='none';fb.classList.add('on');}
+  else{grid.style.display='';fb.classList.remove('on');render(f);}
+});
+render('all');
+const m=document.getElementById('m');
+grid.addEventListener('click',e=>{if(e.target.closest('.btn'))m.classList.add('on')});
+document.getElementById('x').onclick=()=>m.classList.remove('on');
+m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('on')});
+const lm=document.getElementById('lm');
+document.querySelector('.login').onclick=()=>lm.classList.add('on');
+document.getElementById('lx').onclick=()=>lm.classList.remove('on');
+lm.addEventListener('click',e=>{if(e.target===lm)lm.classList.remove('on')});
+</script>
+</body>
+</html>
